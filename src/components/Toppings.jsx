@@ -5,6 +5,22 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+const containerVarients = {
+  hidden: { //we can name it whatever its just make sense to name it hidden
+    opacity: 0,
+    x: '100vw'
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'tween',
+      stiffness: 120,
+      duration: 1.2
+    }
+  }
+}
+
 /* -------------------------------------------------------------- */
 /*                         TOPPINGS COMPONENT                     */
 /* -------------------------------------------------------------- */
@@ -13,7 +29,12 @@ const Toppings = ({ addTopping, pizza }) => {
 
   /* ************************ RENDERING ************************* */
   return (
-    <div className="toppings container">  
+    <motion.div
+      className="toppings container"
+      variants={containerVarients}
+      initial="hidden"
+      animate="visible"
+    >  
       <h3>Step 2: Choose Toppings</h3>
       
       <ul>
@@ -48,7 +69,7 @@ const Toppings = ({ addTopping, pizza }) => {
           Order
         </motion.button>
       </Link>
-    </div>
+    </motion.div>
   )
 }
 
