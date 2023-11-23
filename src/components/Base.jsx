@@ -3,6 +3,7 @@
 /* -------------------------------------------------------------- */
 // Packages
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 /* -------------------------------------------------------------- */
 /*                          BASE COMPONENT                        */
@@ -12,7 +13,12 @@ const Base = ({ addBase, pizza }) => {
 
   /* ************************ RENDERING ************************* */
   return (
-    <div className="base container">
+    <motion.div
+      className="base container"
+      initial={{ x: '100vw' }}
+      animate={{ x: 0 }}
+      transition={{ type: 'tween', stiffness: 120 }}
+    >
 
       <h3>Step 1: Choose Your Base</h3>
       <ul>
@@ -27,14 +33,19 @@ const Base = ({ addBase, pizza }) => {
       </ul>
 
       {pizza.base && (
-        <div className="next">
+        <motion.div
+          className="next"
+          initial={{ x: '-100vw' }}
+          animate={{ x: 0 }}
+          transition={{ type: 'spring', stiffness: 120 }}
+        >
           <Link to="/toppings">
             <button>Next</button>
           </Link>
-        </div>
+        </motion.div>
       )}
 
-    </div>
+    </motion.div>
   )
 }
 

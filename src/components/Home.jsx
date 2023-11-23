@@ -3,6 +3,7 @@
 /* -------------------------------------------------------------- */
 // Packages
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion'; 
 
 /* -------------------------------------------------------------- */
 /*                           HOME COMPONENT                       */
@@ -10,10 +11,21 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   /* ************************ RENDERING ************************* */
   return (
-    <div className="home container">
+    <motion.div
+      className="home container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.5, duration: 1.5 }}
+    >
       <h2> Welcome to Pizza Joint </h2>
-      <Link to="/base"> <button> Create Your Pizza </button> </Link>
-    </div>
+      <Link to="/base">
+        <motion.button
+          animate={{}}
+        >
+          Create Your Pizza
+        </motion.button>
+      </Link>
+    </motion.div>
   )
 }
 
