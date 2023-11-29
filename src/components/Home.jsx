@@ -15,6 +15,12 @@ const containerVarients = {
       delay: 1.5,
       duration: 1.5
     }
+  },
+  exit: {
+    x: '-100vw',
+    transition: {
+      ease: 'easeInOut'
+    }
   }
 }
 
@@ -41,6 +47,7 @@ const Home = () => {
       variants={containerVarients}
       initial="hidden"
       animate="visible"
+      exit='exit'
     >
       <h2> Welcome to Pizza Joint </h2>
       <Link to="/base">

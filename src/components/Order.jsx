@@ -2,8 +2,7 @@
 /*                           DEPENDENCIES                         */
 /* -------------------------------------------------------------- */
 // Packages
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const containerVarients = {
   hidden: { //we can name it whatever its just make sense to name it hidden
@@ -40,14 +39,6 @@ const childVariants = {
 /*                          ORDER COMPONENT                       */
 /* -------------------------------------------------------------- */
 const Order = ({ pizza }) => {
-  // States
-  const [showTitle, setShowTitle] = useState(true);
-
-  // Fn
-  setTimeout(() => {
-    setShowTitle(false);
-  }, 4000) // use animatePresence to animate elements off the page
-
   /* ************************ RENDERING ************************* */
   return (
     <motion.div
@@ -56,9 +47,7 @@ const Order = ({ pizza }) => {
       initial="hidden"
       animate="visible"
     >
-      <AnimatePresence>
-        {showTitle && <motion.h2 exit={{ y: -1000 }}> Thank you for your order :) </motion.h2>}
-      </AnimatePresence>
+      <h2> Thank you for your order :) </h2>
       <motion.p variants={childVariants}> You ordered a {pizza.base} pizza with: </motion.p>
       <motion.div variants={childVariants}>
         {pizza.toppings.map(topping => <div key={topping}>{topping}</div>)}
