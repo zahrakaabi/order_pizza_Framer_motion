@@ -37,7 +37,12 @@ const Header = () => {
     return (
       <Link to="/">
         <header>
-          <div className="logo">
+          <motion.div
+            drag
+            className="logo"
+            dragElastic={0.7}
+            dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }} // when i leave it it returns by itself
+          >
             <motion.svg 
               className="pizza-svg" 
               xmlns="http://www.w3.org/2000/svg" 
@@ -49,7 +54,8 @@ const Header = () => {
               <motion.path variants={pathVariants} fill="none" d="M40 40 L80 40 C80 40 80 80 40 80 C40 80 0 80 0 40 C0 40 0 0 40 0Z" />
               <motion.path variants={pathVariants} fill="none" d="M50 30 L50 -10 C50 -10 90 -10 90 30 Z" />
             </motion.svg>
-          </div>
+          </motion.div>
+
           <motion.div
             className="title"
             initial={{ y: -250 }}
