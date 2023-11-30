@@ -38,10 +38,7 @@ const Modal = ({ showModal }) => {
                     animate="visible"
                     exit="hidden"
                 >
-                    <motion.div
-                        className="modal"
-                        variants={modalVariants}
-                    >
+                    <motion.div className="modal" variants={modalVariants}>
                         <p> Want to make another pizza? </p>
                         <Link to="/"> <button type="button"> Order now </button> </Link>
                     </motion.div>
