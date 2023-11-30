@@ -2,7 +2,7 @@
 /*                           DEPENDENCIES                         */
 /* -------------------------------------------------------------- */
 // Packages
-import { motion } from 'framer-motion';
+import { motion, useCycle } from 'framer-motion';
 
 // Framer motion variables
 const loaderVariants = {
@@ -17,7 +17,18 @@ const loaderVariants = {
             y: {
                 repeat: Infinity,
                 duration: 0.25,
-                ease: 'easeInOut'
+                ease: 'easeOut'
+            }
+        }
+    },
+    animationTwo: {
+        x: 0,
+        y: [0, -40],
+        transition: {
+            y: {
+                repeat: Infinity,
+                duration: 0.25,
+                ease: 'easeOut'
             }
         }
     }
@@ -27,14 +38,17 @@ const loaderVariants = {
 /*                         LOADER COMPONENT                       */
 /* -------------------------------------------------------------- */
 const Loader = () => {
+    const [animation, cycleAnimation] = useCycle('animationOne', 'animationTwo');
+
     /* *********************** RENDERING ************************ */
     return (
       <>
         <motion.div
             className='loader'
             variants={loaderVariants}
-            animate='animationOne'
+            animate={animation}
         ></motion.div>
+        <div onClick={() => cycleAnimation()}> Cycle Animation for Loader</div>
       </>
     )
   }
