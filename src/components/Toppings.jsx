@@ -5,6 +5,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+// Framer motion variables
 const containerVarients = {
   hidden: { //we can name it whatever its just make sense to name it hidden
     opacity: 0,

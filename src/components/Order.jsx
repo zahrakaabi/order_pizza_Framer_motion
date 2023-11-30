@@ -2,8 +2,10 @@
 /*                           DEPENDENCIES                         */
 /* -------------------------------------------------------------- */
 // Packages
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+// Framer motion variables
 const containerVarients = {
   hidden: { //we can name it whatever its just make sense to name it hidden
     opacity: 0,
@@ -38,7 +40,13 @@ const childVariants = {
 /* -------------------------------------------------------------- */
 /*                          ORDER COMPONENT                       */
 /* -------------------------------------------------------------- */
-const Order = ({ pizza }) => {
+const Order = ({ pizza, setShowModal }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      setShowModal(true);
+    }, 5000);
+  }, [setShowModal]);
+
   /* ************************ RENDERING ************************* */
   return (
     <motion.div
