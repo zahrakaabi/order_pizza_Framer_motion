@@ -5,6 +5,9 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'; 
 
+// UI Local Components
+import Loader from './Loader'; 
+
 // Framer motion variables
 const containerVarients = {
   hidden: {
@@ -59,6 +62,7 @@ const Home = () => {
           Create Your Pizza
         </motion.button>
       </Link>
+      <Loader />
     </motion.div>
   )
 }
